@@ -14,12 +14,12 @@ import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
 import { getRecentUrl } from "../api/getRecentUrl.api.js";
+import { useAuth } from '@clerk/clerk-react';
 
 export default function RecentURLsPage() {
   const [recentUrls, setRecentUrls] = useState([]);
-
-  const auth = useSelector((state) => state.auth);
-  const clerkId = auth?.user?.user?.clerkId;
+  const {userId} = useAuth();
+  const clerkId = userId
   // console.log("clerkId",clerkId);
 
   useEffect(() => {

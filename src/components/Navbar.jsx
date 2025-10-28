@@ -36,7 +36,7 @@ const NavBar = () => {
 
   const isAuthenticated = isSignedIn;
 
-  console.log(useAuth());
+  // console.log(useAuth());
   
 
   const handleNavigate = () => {
