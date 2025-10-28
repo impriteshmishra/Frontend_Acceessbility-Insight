@@ -16,6 +16,7 @@ import {
   SignInButton,
   UserButton,
   useUser,
+  useAuth
 } from "@clerk/clerk-react";
 import { ClerkLoaded, ClerkLoading } from "@clerk/clerk-react";
 import { getUser } from "../api/getUser.api";
@@ -31,8 +32,12 @@ const NavBar = () => {
   const { user } = useUser();
   const [dbUser, setDbUser] = useState(null);
   const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector((state) => state.auth);
-  // console.log("isauth", isAuthenticated);
+  const { isSignedIn } = useAuth();
+
+  const isAuthenticated = isSignedIn;
+
+  console.log(useAuth());
+  
 
   const handleNavigate = () => {
     navigate("/");
